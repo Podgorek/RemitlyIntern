@@ -1,0 +1,100 @@
+{
+  "PolicyName": "root",
+  "PolicyDocument": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "IamListAccess",
+        "Effect": "Allow",
+        "Action": [
+          "iam:ListRoles",
+          "iam:ListUsers"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Sid": "AnotherStatement",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject"
+        ],
+        "Resource": "arn:aws:s3:::example-bucket"
+      },
+      {
+        "Sid": "EC2Statement",
+        "Effect": "Allow",
+        "Action": [
+          "ec2:DescribeInstances",
+          "ec2:StartInstances",
+          "ec2:StopInstances"
+        ],
+        "Resource": "arn:aws:ec2:region:account-id-without-hyphens:instance/instance-id"
+      },
+      {
+        "Sid": "S3BucketStatement",
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws:s3:::another-bucket"
+      },
+      {
+        "Sid": "LambdaStatement",
+        "Effect": "Allow",
+        "Action": [
+          "lambda:InvokeFunction",
+          "lambda:GetFunction"
+        ],
+        "Resource": "arn:aws:lambda:region:account-id-without-hyphens:function:function-name"
+      },
+      {
+        "Sid": "DynamoDBStatement",
+        "Effect": "Allow",
+        "Action": [
+          "dynamodb:GetItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem"
+        ],
+        "Resource": "arn:aws:dynamodb:region:account-id-without-hyphens:table/table-name"
+      },
+      {
+        "Sid": "SNSStatement",
+        "Effect": "Allow",
+        "Action": [
+          "sns:Publish",
+          "sns:Subscribe"
+        ],
+        "Resource": "arn:aws:sns:region:account-id-without-hyphens:topic/topic-name"
+      },
+      {
+        "Sid": "SQSStatement",
+        "Effect": "Allow",
+        "Action": [
+          "sqs:SendMessage",
+          "sqs:ReceiveMessage"
+        ],
+        "Resource": "arn:aws:sqs:region:account-id-without-hyphens:queue/queue-name"
+      },
+      {
+        "Sid": "RDSStatement",
+        "Effect": "Allow",
+        "Action": [
+          "rds:DescribeDBInstances",
+          "rds:CreateDBInstance"
+        ],
+        "Resource": "arn:aws:rds:region:account-id-without-hyphens:db:db-name"
+      },
+      {
+        "Sid": "IAMStatement",
+        "Effect": "Allow",
+        "Action": [
+          "iam:CreateUser",
+          "iam:CreateGroup"
+        ],
+        "Resource": "arn:aws:iam::account-id-without-hyphens:group/group-name"
+      }
+    ]
+  }
+}
